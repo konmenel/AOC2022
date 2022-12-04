@@ -2,7 +2,7 @@
 
 ## Python scripts
 ```console
-$ python dayXX.py
+$ python src/dayXX.py
 ```
 
 ## Rust scripts
