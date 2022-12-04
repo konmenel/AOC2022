@@ -1,31 +1,23 @@
 use aoc::*;
 
 
-fn part1<T>(input: Vec<T>) {
+fn part1<T>(input: &Vec<T>) {
 
 }
 
 fn main() {
-    let input: Vec<String> = match read_inputs("data/XX.txt") {
+    let day = XX;
+    #[cfg(debug_assertions)]
+    let file_path = format!("data/examples/{:02}.txt", day);
+
+    #[cfg(not(debug_assertions))]
+    let file_path = format!("data/{:02}.txt", day);
+
+    let input: Vec<String> = match read_inputs(&file_path) {
         Ok(input) => input,
         Err(e) => panic!("Error parsing the inputs: {:?}", e)
     };
-    part1(input);
-}
-
-
-#[cfg(test)]
-mod test {
-    use crate::read_inputs;
-    use crate::part1;
-
-    #[test]
-    fn reading_test() {
-        let input: Vec<i32> = match read_inputs("data/examples/XX.txt") {
-            Ok(input) => input,
-            Err(e) => panic!("Parsing input file error: {:?}", e),
-        };
-
-        part1(input);
-    }
+    println!("PART 1:");
+    part1(&input);
+    println!("PART 2:");
 }
