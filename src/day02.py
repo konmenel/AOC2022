@@ -32,7 +32,7 @@ def find_play(their_choice: str, outcome: str):
 def main() -> int:
     score1 = 0
     score2 = 0
-    with open("02/input.txt", "r") as file:
+    with open("data/02.txt", "r") as file:
         for line in file.readlines():
             line = line.strip()
             their_choice, my_choice = line.split(" ")

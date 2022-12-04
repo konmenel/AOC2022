@@ -26,7 +26,7 @@ def main() -> int:
     most_cals = [0, 0, 0]
     most_cals_elfs = [0, 0, 0]
 
-    with open("01/input.txt", "r") as fin:
+    with open("data/01.txt", "r") as fin:
         for line in fin.readlines():
             line = line.strip()
 
