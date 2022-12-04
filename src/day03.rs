@@ -50,7 +50,14 @@ fn part2(input: &Vec<String>)
 }
 
 fn main() {
-    let input: Vec<String> = match read_inputs("data/03.txt") {
+    let day = 3;
+    #[cfg(debug_assertions)]
+    let file_path = format!("data/examples/{:02}.txt", day);
+
+    #[cfg(not(debug_assertions))]
+    let file_path = format!("data/{:02}.txt", day);
+
+    let input: Vec<String> = match read_inputs(&file_path) {
         Ok(input) => input,
         Err(e) => panic!("Error parsing the inputs: {:?}", e)
     };
