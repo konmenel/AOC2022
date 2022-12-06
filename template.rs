@@ -1,4 +1,4 @@
-use aoc::*;
+use aoc::read_inputs;
 
 
 fn part1<T>(input: &Vec<T>) {
