@@ -5,6 +5,7 @@ fn part1(input: &Vec<String>) {
 
 }
 
+
 fn main() {
     let day: u32 = XX;
     #[cfg(debug_assertions)]
