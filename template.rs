@@ -1,7 +1,7 @@
 use aoc::read_inputs;
 
 
-fn part1<T>(input: &Vec<T>) {
+fn part1(input: &Vec<String>) {
 
 }
 
