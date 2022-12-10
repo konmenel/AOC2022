@@ -6,7 +6,7 @@ fn part1(input: &Vec<String>) {
 }
 
 fn main() {
-    let day = XX;
+    let day: u32 = XX;
     #[cfg(debug_assertions)]
     let file_path = format!("data/examples/{:02}.txt", day);
 
