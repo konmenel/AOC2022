@@ -27,4 +27,3 @@ Add-Content .\Cargo.toml $cargo_str
 
 $replace_str="let day: u32 = {0}" -f $daynumber
 ((Get-Content -Path .\template.rs -Raw) -replace "let day: u32 = XX", $replace_str) | Set-Content -Path $filename
-

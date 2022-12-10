@@ -33,4 +33,3 @@ printf "\n[[bin]]\nname = \"day%02d\"\npath = \"src/day%02d.rs\"\n" $daynumber >
 
 replace_str=$(printf "let day: u32 = %d" $daynumber)
 sed "s/let day: u32 = XX/$replace_str/g" ./template.rs > $filename
-

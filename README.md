@@ -1,7 +1,9 @@
 # AOC2022
+My solutions to Advent of Code 2022.
 
-## Create new day from template
-For a given day "XX" do one of the following
+## To create new day from template
+For a given day "**XX**" do one of the following
+
 ### Rust
 Run the powershell script
 ```console
@@ -18,8 +20,28 @@ Copy the template
 $ cp template.py ./src/dayXX.py
 ```
 
-## Run a solution
-For a given day "XX" do one of the following
+## To download the inputs
+The custom python script `getinput.py` downloads the puzzle inputs
+and example inputs. 
+
+### Dependencies
+* requests
+* Beautiful Soup 4
+
+### Setup
+
+Before running the script you need to setup the `cookie.json` file. Simply copy the value for session cookie from https://adventofcode.com/ using the inspect tool in the browser, to the `cookie_example.json` file and rename to `cookie.json`. This is because the puzzle inputs differ for each user.
+
+### Run
+After the above are done, for a given day "**XX**" you should be able to excecute:
+
+```console
+$ python3 getinput.py XX
+```
+
+## To run a solution
+For a given day "**XX**" do one of the following
+
 ### Rust scripts
 To run with example input:
 
