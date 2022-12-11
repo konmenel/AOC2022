@@ -1,8 +1,10 @@
 use aoc::read_inputs;
 
+type InputT = Vec<String>;
 
-fn part1(input: &Vec<String>) {
 
+fn part1(input: &InputT) {
+    
 }
 
 
@@ -14,7 +16,7 @@ fn main() {
     #[cfg(not(debug_assertions))]
     let file_path = format!("data/{:02}.txt", day);
 
-    let input: Vec<String> = read_inputs(&file_path).unwrap();
+    let input: InputT = read_inputs(&file_path).unwrap();
     println!("PART 1:");
     part1(&input);
     println!("PART 2:");
