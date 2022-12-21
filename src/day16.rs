@@ -46,7 +46,7 @@ fn max_press(
     nonzero_nodes: &Vec<&str>,
     head: &str,
     time: i32,
-    opened_valves: BitsetT
+    opened_valves: BitsetT,
 ) -> i32 {
     // use std::sync::Mutex;
     // lazy_static! {
@@ -179,7 +179,7 @@ fn part2(input: &InputT) {
     let max_bitset = (1 << nonzero_nodes.len()) - 1;
     let mut pressure = 0;
 
-    for me in 0..max_bitset/2 {
+    for me in 0..max_bitset / 2 {
         let eleph = max_bitset ^ me;
         let press_me = max_press(&map, &indeces, &nonzero_nodes, head, TIME, me);
         let press_eleph = max_press(&map, &indeces, &nonzero_nodes, head, TIME, eleph);

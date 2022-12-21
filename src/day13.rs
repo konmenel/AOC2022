@@ -1,5 +1,5 @@
-use std::str::Split;
 use std::cmp::Ordering;
+use std::str::Split;
 
 use aoc::read_inputs;
 
@@ -8,12 +8,11 @@ type InputT = Vec<String>;
 #[derive(Debug, Clone, PartialEq)]
 enum Value {
     Number(i32),
-    List(Vec<Value>)
+    List(Vec<Value>),
 }
 
-
 fn parse_packet(string: &str) -> Vec<Value> {
-    let mut split = string[1..string.len()-1].split(',');
+    let mut split = string[1..string.len() - 1].split(',');
     let mut ret = vec![];
     while let Some(token) = split.next() {
         if token.is_empty() {
@@ -31,38 +30,33 @@ fn parse_value(split: &mut Split<char>, first_token: &str) -> Value {
 
     match first_token.parse::<i32>() {
         Ok(num) => Value::Number(num),
-        Err(_) => Value::List(vec![])
+        Err(_) => Value::List(vec![]),
     }
 }
-
 
 fn parse_list(split: &mut Split<char>, first_token: &str) -> Vec<Value> {
     let mut ret = vec![];
     if first_token.starts_with('[') {
         ret.push(parse_value(split, first_token));
-    }
-    else if first_token.contains(']') {
+    } else if first_token.contains(']') {
         let end = first_token.find(']').unwrap();
         ret.push(parse_value(split, &first_token[..end]));
         return ret;
-    }
-    else {
+    } else {
         ret.push(parse_value(split, &first_token));
     }
-
 
     while let Some(token) = split.next() {
         if token.contains(']') {
             let end = token.find(']').unwrap();
-            ret.push(parse_value(split,&token[..end])); 
+            ret.push(parse_value(split, &token[..end]));
             break;
         }
-        
+
         ret.push(parse_value(split, &token));
     }
     ret
 }
-
 
 fn check_right_order(left: &Vec<Value>, right: &Vec<Value>) -> Option<bool> {
     // println!("{:?}", left);
@@ -76,27 +70,30 @@ fn check_right_order(left: &Vec<Value>, right: &Vec<Value>) -> Option<bool> {
             None => return Some(false),
             Some(rval) => match (lval, rval) {
                 (Value::Number(lnum), Value::Number(rnum)) => {
-                    if lnum < rnum { return Some(true); }
-                    else if lnum > rnum { return Some(false); }
-                },
+                    if lnum < rnum {
+                        return Some(true);
+                    } else if lnum > rnum {
+                        return Some(false);
+                    }
+                }
                 (Value::List(llist), Value::List(rlist)) => {
                     if let Some(comp) = check_right_order(&llist, &rlist) {
                         return Some(comp);
                     }
-                },
+                }
                 (Value::List(llist), rnum) => {
                     let rlist = vec![rnum.clone()];
                     if let Some(comp) = check_right_order(&llist, &rlist) {
                         return Some(comp);
                     }
-                },
+                }
                 (lnum, Value::List(rlist)) => {
                     let llist = vec![lnum.clone()];
                     if let Some(comp) = check_right_order(&llist, &rlist) {
                         return Some(comp);
                     }
                 }
-            }
+            },
         }
     }
     if left.len() == right.len() {
@@ -106,13 +103,10 @@ fn check_right_order(left: &Vec<Value>, right: &Vec<Value>) -> Option<bool> {
     Some(true)
 }
 
-
-
 fn part1(input: &InputT) {
     let mut iter = input.iter();
     let mut sum = 0;
     let mut i = 1;
-
 
     while let (Some(left), Some(right)) = (iter.next(), iter.next()) {
         iter.next(); // empty line
@@ -134,8 +128,8 @@ fn part2(input: &InputT) {
     let mut iter = input.iter();
     let mut pockets = vec![];
 
-    let distress2 = vec![Value::List(vec![Value::Number(2)])]; 
-    let distress6 = vec![Value::List(vec![Value::Number(6)])]; 
+    let distress2 = vec![Value::List(vec![Value::Number(2)])];
+    let distress6 = vec![Value::List(vec![Value::Number(6)])];
 
     pockets.push(distress2.clone());
     pockets.push(distress6.clone());
@@ -151,8 +145,7 @@ fn part2(input: &InputT) {
     pockets.sort_by(|a, b| {
         if check_right_order(a, b).unwrap() {
             Ordering::Less
-        }
-        else {
+        } else {
             Ordering::Greater
         }
     });
@@ -162,7 +155,6 @@ fn part2(input: &InputT) {
 
     println!("{}", decoder);
 }
-
 
 fn main() {
     let day: u32 = 13;
@@ -178,4 +170,3 @@ fn main() {
     println!("PART 2:");
     part2(&input);
 }
-
