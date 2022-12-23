@@ -68,7 +68,7 @@ def main() -> int:
     request = requests.get(url, cookies=COOKIE)
     soup = BeautifulSoup(request.text, "html.parser")
 
-    example_p = soup.find(string=re.compile("For example"))
+    example_p = soup.find(string=re.compile("For example|[Ll]arger example"))
     example_data = example_p.findNext("code").text
 
     with open(example_fname, "w") as file:
