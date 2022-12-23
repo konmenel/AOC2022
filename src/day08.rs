@@ -3,6 +3,7 @@ use aoc::read_inputs;
 type GridT = Vec<Vec<u32>>;
 
 
+#[allow(dead_code)]
 fn print_grid(grid: &GridT) {
     let nrow = grid.len();
     let ncol = grid[0].len();

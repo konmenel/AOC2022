@@ -1,4 +1,4 @@
-use std::{vec, cell::RefCell, rc::Rc, borrow::Borrow, process::Output};
+use std::{cell::RefCell, rc::Rc};
 
 use aoc::read_inputs;
 
@@ -73,6 +73,7 @@ impl Directory {
         // println!("Dir name: '{0}'\tSize: {1}", self.name, self.size);
     }
 
+    #[allow(dead_code)]
     pub fn print_tree(&self, level: Option<u32>) {
         let lvlprint = |lvl| {
             for _ in 0..lvl {

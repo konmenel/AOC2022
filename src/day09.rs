@@ -72,7 +72,7 @@ fn fix_rope_pos(rope: &mut Vec<Position>) {
     }
 }
 
-
+#[allow(dead_code)]
 fn visualize_grid(rope: &Vec<Position>) {
     for col in 0..20 {
         for row in 0..20 {
