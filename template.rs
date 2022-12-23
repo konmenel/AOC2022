@@ -2,11 +2,9 @@ use aoc::read_inputs;
 
 type InputT = Vec<String>;
 
-
 fn part1(input: &InputT) {
     
 }
-
 
 fn main() {
     let day: u32 = XX;
