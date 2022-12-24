@@ -40,12 +40,6 @@ def main() -> int:
         print(f'Input file "{filename}" already exists.')
         return 1
 
-    cookie = {
-        "session": "53616c7465645f5fdce9e8c72bc0"
-        + "c32ac2fcc7c10d39b7baf503629605cea"
-        + "f9dbc0280a95482ed83ff1e761b4eaf94"
-        + "d119364021712e196c2aeb79e771e0282b"
-    }
     url = f"https://adventofcode.com/2022/day/{args.day}/input"
     request = requests.get(url, cookies=COOKIE)
     if not request.ok:
@@ -58,6 +52,10 @@ def main() -> int:
 
     with open(filename, "w") as file:
         file.write(request.text)
+
+    if args.day == 20:
+        print("Day 20 example not supported do it manually!")
+        return 1
 
     example_fname = f"data/examples/{args.day:02d}.txt"
     if os.path.exists(example_fname):
