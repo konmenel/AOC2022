@@ -1,5 +1,3 @@
-use std::collections::btree_set::Difference;
-
 use aoc::read_inputs;
 
 type InputT = Vec<String>;
