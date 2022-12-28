@@ -6,6 +6,7 @@ edition = "2021"
 [dependencies]
 regex = "1"
 lazy_static = "1.4.0"
+num = "0.4.0"
 
 [lib]
 name = "aoc"
@@ -86,3 +87,7 @@ path = "src/day20.rs"
 [[bin]]
 name = "day21"
 path = "src/day21.rs"
+
+[[bin]]
+name = "day22"
+path = "src/day22.rs"
