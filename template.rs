@@ -18,4 +18,5 @@ fn main() {
     println!("PART 1:");
     part1(&input);
     println!("PART 2:");
+    // part2(&input);
 }
